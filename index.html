@@ -193,7 +193,10 @@ footer{margin-top:2.5rem;padding-top:1rem;border-top:.5px solid var(--bd);font-s
 </div>
 
 <script>
-const ED=new Date('2026-06-03'), PX='https://api.allorigins.win/get?url=';
+const ED=new Date('2026-06-03');
+// ★ Worker 배포 후 아래 URL을 본인 Worker 주소로 교체하세요
+// 예: 'https://election-news-proxy.yourname.workers.dev'
+const WORKER='https://election-news-proxy.yourname.workers.dev';
 
 const regions=[
   {id:'서울',name:'서울특별시',trend:'경합',
@@ -377,10 +380,12 @@ async function bfetch(i){
   document.getElementById('byNlist').innerHTML='<div class="smsg"><span class="spin"></span>불러오는 중...</div>';
   const kw=byKwds[i];
   try{
-    const r=await fetch(PX+encodeURIComponent(`https://news.google.com/rss/search?q=${kw.q}&hl=ko&gl=KR&ceid=KR:ko`));
+    const r=await fetch(`${WORKER}/rss?q=${encodeURIComponent(kw.q)}`);
     if(!r.ok)throw new Error('HTTP '+r.status);
-    const j=await r.json();if(!j.contents)throw new Error('빈 응답');
-    const items=parseRSS(j.contents);bc[i]=items;bnRender(items);
+    const j=await r.json();
+    if(!j.items)throw new Error('응답 오류');
+    bc[i]=j.items.map(it=>({...it,date:fmtDate(it.pubDate)}));
+    bnRender(bc[i]);
   }catch(e){
     document.getElementById('byNlist').innerHTML='';eb.style.display='block';
     eb.innerHTML=`로드 실패(${e.message}). <a href="https://news.google.com/search?q=${kw.q}&hl=ko&gl=KR" target="_blank" class="elink">구글 뉴스 직접 보기</a>`;
@@ -437,6 +442,11 @@ function renderKwGrid(){
 renderKwGrid();
 function sk(i){ak=i;renderKwGrid();fetchNews(i);}
 
+function fmtDate(pubDate){
+  try{const d=new Date(pubDate);return`${d.getMonth()+1}/${d.getDate()} ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;}
+  catch(e){return'';}
+}
+
 function parseRSS(xml){
   const doc=new DOMParser().parseFromString(xml,'text/xml');
   return Array.from(doc.querySelectorAll('item')).map(n=>{
@@ -461,10 +471,12 @@ async function fetchNews(i){
   document.getElementById('nlist').innerHTML='<div class="smsg"><span class="spin"></span>구글 뉴스 불러오는 중...</div>';
   const kw=kwds[i];
   try{
-    const r=await fetch(PX+encodeURIComponent(`https://news.google.com/rss/search?q=${kw.q}&hl=ko&gl=KR&ceid=KR:ko`));
+    const r=await fetch(`${WORKER}/rss?q=${encodeURIComponent(kw.q)}`);
     if(!r.ok)throw new Error('HTTP '+r.status);
-    const j=await r.json();if(!j.contents)throw new Error('빈 응답');
-    const items=parseRSS(j.contents);nc[i]=items;renderN(items,'nlist','utime');
+    const j=await r.json();
+    if(!j.items)throw new Error('응답 오류');
+    nc[i]=j.items.map(it=>({...it,date:fmtDate(it.pubDate)}));
+    renderN(nc[i],'nlist','utime');
   }catch(e){
     document.getElementById('nlist').innerHTML='';eb.style.display='block';
     eb.innerHTML=`로드 실패(${e.message}). <a href="https://news.google.com/search?q=${kw.q}&hl=ko&gl=KR" target="_blank" class="elink">구글 뉴스 직접 보기</a>`;
