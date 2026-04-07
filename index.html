@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>6.3 지선 · 재보궐 동향</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#fff;--bg2:#f7f7f5;--bg3:#f0f0ec;
+  --bg-info:#e6f1fb;--bg-warn:#faeeda;--bg-ok:#eaf3de;--bg-err:#fcebeb;--bg-pu:#eeedfe;
+  --text:#1a1a18;--text2:#5f5e5a;--text3:#888780;
+  --text-info:#0c447c;--text-warn:#633806;--text-ok:#27500a;--text-err:#a32d2d;--text-pu:#3c3489;
+  --bd:rgba(0,0,0,.12);--bd2:rgba(0,0,0,.22);--r:8px;--rl:12px;
+}
+@media(prefers-color-scheme:dark){:root{
+  --bg:#1a1a18;--bg2:#242422;--bg3:#2c2c2a;
+  --bg-info:#042c53;--bg-warn:#412402;--bg-ok:#173404;--bg-err:#501313;--bg-pu:#26215c;
+  --text:#f0f0ec;--text2:#b4b2a9;--text3:#888780;
+  --text-info:#85b7eb;--text-warn:#fac775;--text-ok:#c0dd97;--text-err:#f09595;--text-pu:#afa9ec;
+  --bd:rgba(255,255,255,.10);--bd2:rgba(255,255,255,.18);
+}}
+body{font-family:-apple-system,BlinkMacSystemFont,'Noto Sans KR','Apple SD Gothic Neo',sans-serif;background:var(--bg3);color:var(--text);font-size:15px;line-height:1.6;min-height:100vh}
+.wrap{max-width:1000px;margin:0 auto;padding:1.5rem 1rem 3rem}
+.hdr{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:1rem}
+.htitle{font-size:22px;font-weight:700}
+.hsub{font-size:13px;color:var(--text2);margin-top:2px}
+.dday{background:#e24b4a;color:#fff;padding:6px 16px;border-radius:var(--r);font-size:14px;font-weight:700}
+.strip{display:flex;align-items:center;gap:8px;flex-wrap:wrap;background:var(--bg2);border:.5px solid var(--bd);border-radius:var(--r);padding:7px 12px;font-size:12px;color:var(--text2);margin-bottom:1.25rem}
+.dot{width:6px;height:6px;border-radius:50%;background:#639922;flex-shrink:0}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:1.25rem}
+.chip{font-size:12px;font-weight:500;padding:4px 12px;border-radius:99px;white-space:nowrap}
+.tabs{display:flex;flex-wrap:wrap;margin-bottom:1.25rem;border-bottom:.5px solid var(--bd)}
+.tab{padding:9px 16px;font-size:14px;cursor:pointer;border:none;background:none;color:var(--text2);border-bottom:2px solid transparent;margin-bottom:-.5px;font-family:inherit;transition:all .15s}
+.tab:hover{color:var(--text)}.tab.active{color:var(--text-info);border-bottom-color:var(--text-info);font-weight:500}
+.sec{display:none}.sec.active{display:block}
+.note{font-size:11px;color:var(--text3);background:var(--bg2);border-radius:var(--r);padding:6px 12px;margin-bottom:1rem;line-height:1.7}
+.twrap{overflow-x:auto;margin-bottom:1.5rem}
+table.t{width:100%;border-collapse:collapse;font-size:13px}
+table.t th{background:var(--bg2);color:var(--text2);font-weight:500;padding:8px 10px;border:.5px solid var(--bd);text-align:center;white-space:nowrap}
+table.t td{padding:8px 10px;border:.5px solid var(--bd);background:var(--bg);vertical-align:top}
+table.t tr:hover td{background:var(--bg2)}
+.rn{font-weight:600;font-size:13px;white-space:nowrap}
+.tag{display:inline-block;font-size:11px;font-weight:600;padding:2px 7px;border-radius:99px;white-space:nowrap}
+.t-민주확정{background:var(--bg-info);color:var(--text-info)}.t-민주경선{background:#e1f5ee;color:#0f6e56}
+.t-민주결선{background:var(--bg-warn);color:var(--text-warn)}.t-국힘확정{background:var(--bg-err);color:var(--text-err)}
+.t-국힘경선{background:#faece7;color:#993c1d}.t-미정{background:var(--bg3);color:var(--text3);border:.5px solid var(--bd2)}
+.t-민주우세{background:var(--bg-info);color:var(--text-info)}.t-국힘우세{background:var(--bg-err);color:var(--text-err)}
+.t-경합{background:var(--bg2);color:var(--text2);border:.5px solid var(--bd2)}
+.t-확정{background:var(--bg-ok);color:var(--text-ok)}.t-추가예정{background:var(--bg-pu);color:var(--text-pu)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:12px}
+.card{background:var(--bg);border:.5px solid var(--bd);border-radius:var(--rl);padding:1rem 1.25rem}
+.ched{font-size:15px;font-weight:600;display:flex;align-items:center;gap:7px;margin-bottom:10px}
+.cdot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.rows{display:flex;flex-direction:column;gap:5px}
+.row{display:flex;align-items:flex-start;justify-content:space-between;padding:5px 9px;border-radius:var(--r);border:.5px solid var(--bd);gap:6px;flex-wrap:wrap}
+.rl{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.ptag{font-size:11px;font-weight:600;padding:2px 7px;border-radius:99px;white-space:nowrap;flex-shrink:0}
+.p민주{background:var(--bg-info);color:var(--text-info)}.p국힘{background:var(--bg-err);color:var(--text-err)}
+.cn{font-size:13px;color:var(--text);white-space:nowrap}.cd{font-size:11px;color:var(--text3)}
+.stag{font-size:11px;padding:2px 7px;border-radius:99px;white-space:nowrap;flex-shrink:0}
+.s확정{background:var(--bg-ok);color:var(--text-ok)}.s경선중{background:var(--bg-warn);color:var(--text-warn)}
+.s결선중{background:#faece7;color:#993c1d}.s예상{background:var(--bg2);color:var(--text3);border:.5px solid var(--bd)}
+.s미정{background:var(--bg3);color:var(--text3);border:.5px solid var(--bd2)}
+.poll{font-size:12px;color:var(--text2);margin-top:8px;line-height:1.5}
+.glink{display:inline-flex;align-items:center;gap:4px;font-size:12px;color:var(--text-info);border:.5px solid var(--bd2);padding:4px 9px;border-radius:var(--r);text-decoration:none;margin-top:8px}
+.glink:hover{background:var(--bg-info)}
+.frow{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1rem}
+.fb{padding:5px 13px;border-radius:99px;border:.5px solid var(--bd2);background:var(--bg);color:var(--text2);font-size:12px;cursor:pointer;font-family:inherit}
+.fb:hover{background:var(--bg2)}.fb.active{background:var(--text);color:var(--bg);border-color:var(--text)}
+.si{margin-bottom:1rem}.si input{width:100%;padding:9px 14px;border-radius:var(--r);border:.5px solid var(--bd2);background:var(--bg);color:var(--text);font-size:14px;font-family:inherit;outline:none}
+.si input:focus{border-color:var(--text-info)}
+.kwg{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:8px;margin-bottom:1.25rem}
+.kwb{padding:8px 11px;border-radius:var(--r);border:.5px solid var(--bd2);background:var(--bg);color:var(--text2);font-size:13px;cursor:pointer;text-align:left;font-family:inherit;line-height:1.4}
+.kwb:hover{background:var(--bg2)}.kwb.active{border-color:var(--text-info);background:var(--bg-info);color:var(--text-info)}
+.kwb .kl{font-weight:600}.kwb .ks{font-size:11px;color:var(--text3);margin-top:2px}
+.kwb.active .ks{color:var(--text-info);opacity:.75}
+.nlist{display:flex;flex-direction:column;gap:8px}
+.nc{background:var(--bg);border:.5px solid var(--bd);border-radius:var(--rl);padding:12px 1rem;text-decoration:none;display:block}
+.nc:hover{border-color:var(--bd2)}
+.nm{display:flex;align-items:center;gap:7px;margin-bottom:5px;flex-wrap:wrap}
+.ns{font-size:11px;font-weight:600;color:var(--text-info);background:var(--bg-info);padding:2px 7px;border-radius:99px}
+.nd{font-size:11px;color:var(--text3)}.nt{font-size:14px;color:var(--text);line-height:1.5}
+.nb{font-size:12px;color:var(--text2);margin-top:4px;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.smsg{padding:2rem 1rem;text-align:center;color:var(--text2);font-size:14px}
+.spin{width:18px;height:18px;border:2px solid var(--bd2);border-top-color:var(--text2);border-radius:50%;animation:sp .8s linear infinite;display:inline-block;vertical-align:middle;margin-right:8px}
+@keyframes sp{to{transform:rotate(360deg)}}
+.ebox{background:var(--bg-warn);border:.5px solid rgba(186,117,23,.3);border-radius:var(--r);padding:12px 1rem;font-size:13px;color:var(--text-warn);margin-bottom:1rem;display:none}
+.elink{font-size:12px;color:var(--text-info);border:.5px solid var(--bd2);padding:3px 9px;border-radius:var(--r);text-decoration:none;display:inline-block;margin-top:6px}
+.slist{display:flex;flex-direction:column;gap:8px}
+.sc{background:var(--bg);border:.5px solid var(--bd);border-radius:var(--rl);padding:12px 1rem;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap}
+.sd{font-size:13px;font-weight:600;color:var(--text-info);white-space:nowrap;min-width:140px}
+.se{font-size:14px;color:var(--text);flex:1}
+.stg{font-size:11px;padding:2px 8px;border-radius:99px;white-space:nowrap}
+.rbtn{padding:4px 10px;border-radius:var(--r);border:.5px solid var(--bd2);background:var(--bg);color:var(--text2);font-size:12px;cursor:pointer;font-family:inherit}
+footer{margin-top:2.5rem;padding-top:1rem;border-top:.5px solid var(--bd);font-size:12px;color:var(--text3);text-align:center;line-height:1.8}
+@media(max-width:480px){.grid{grid-template-columns:1fr}.kwg{grid-template-columns:repeat(2,1fr)}.htitle{font-size:18px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hdr">
+  <div>
+    <div class="htitle">6.3 지선 · 재보궐 동향</div>
+    <div class="hsub">제9회 전국동시지방선거 + 국회의원 재보궐 · 2026년 6월 3일(수)</div>
+  </div>
+  <div class="dday" id="dday">D-?</div>
+</header>
+
+<div class="strip">
+  <span class="dot"></span>
+  <span id="utime">로딩 중...</span>
+  <span style="margin-left:auto"></span>
+  <button class="rbtn" onclick="refresh()">뉴스 새로고침</button>
+</div>
+
+<div class="chips">
+  <span class="chip" style="background:var(--bg-info);color:var(--text-info);">민주당 공천 절반 완료</span>
+  <span class="chip" style="background:var(--bg-err);color:var(--text-err);">국민의힘 공천 혼선</span>
+  <span class="chip" style="background:var(--bg-ok);color:var(--text-ok);" id="dchip">선거 D-?</span>
+  <span class="chip" style="background:var(--bg-pu);color:var(--text-pu);" id="bychip">재보궐 확정 5곳+</span>
+</div>
+
+<div class="tabs">
+  <button class="tab active" onclick="sw('summary',this)">공천 현황표</button>
+  <button class="tab" onclick="sw('byel',this)">재보궐선거</button>
+  <button class="tab" onclick="sw('metro',this)">광역단체장 상세</button>
+  <button class="tab" onclick="sw('news',this)">실시간 뉴스</button>
+  <button class="tab" onclick="sw('sched',this)">선거 일정</button>
+</div>
+
+<!-- ① 공천 현황표 -->
+<div class="sec active" id="tab-summary">
+  <div class="note">기준: 2026.04.08 · 민주당 4/19 전 지역 완료 예정 · 국민의힘 4/26 대구 마지막 마무리 예정</div>
+  <div class="twrap"><table class="t">
+    <thead><tr><th>지역</th><th>민주당 후보</th><th>상태</th><th>국민의힘 후보</th><th>상태</th><th>판세</th></tr></thead>
+    <tbody id="sTbody"></tbody>
+  </table></div>
+</div>
+
+<!-- ② 재보궐선거 -->
+<div class="sec" id="tab-byel">
+  <div class="note">
+    재보궐 실시 확정 마감: 2026년 4월 30일 · 4/30 이후 의원직 사퇴 시 2027년으로 넘어감<br>
+    지방선거 출마 의원 지역구 추가 시 최대 16곳까지 확대 가능
+  </div>
+  <div class="twrap"><table class="t">
+    <thead><tr><th>선거구</th><th>궐위 사유</th><th>전직 의원</th><th>민주당 후보</th><th>국민의힘 후보</th><th>확정</th></tr></thead>
+    <tbody id="byTbody"></tbody>
+  </table></div>
+  <div class="note" style="margin-top:0">
+    <strong>추가 가능 지역 (지방선거 출마 의원 지역구)</strong><br>
+    인천 연수갑(박찬대→인천시장) · 부산 북갑(전재수→부산시장) · 기타 광역단체장 경선 당선자 지역구 등
+  </div>
+  <div style="margin-top:1rem">
+    <div class="note" style="margin-bottom:.5rem">재보궐 관련 최신 뉴스</div>
+    <div class="kwg" id="byKwGrid"></div>
+    <div class="ebox" id="byErrBox"></div>
+    <div class="nlist" id="byNlist"><div class="smsg">키워드를 선택하면 재보궐 관련 뉴스를 불러옵니다.</div></div>
+  </div>
+</div>
+
+<!-- ③ 광역단체장 상세 -->
+<div class="sec" id="tab-metro">
+  <div class="si"><input type="text" id="sinp" placeholder="지역 또는 후보자 이름 검색..." oninput="fc()"></div>
+  <div class="frow">
+    <button class="fb active" onclick="sf('전체',this)">전체</button>
+    <button class="fb" onclick="sf('확정',this)">확정 후보만</button>
+    <button class="fb" onclick="sf('경선',this)">경선 진행중</button>
+    <button class="fb" onclick="sf('민주우세',this)">민주 우세</button>
+    <button class="fb" onclick="sf('국힘우세',this)">국힘 우세</button>
+  </div>
+  <div class="grid" id="cardGrid"></div>
+</div>
+
+<!-- ④ 실시간 뉴스 -->
+<div class="sec" id="tab-news">
+  <div class="kwg" id="kwGrid"></div>
+  <div class="ebox" id="errBox"></div>
+  <div class="nlist" id="nlist"><div class="smsg">키워드를 선택하면 구글 뉴스에서 최신 기사를 불러옵니다.</div></div>
+</div>
+
+<!-- ⑤ 선거 일정 -->
+<div class="sec" id="tab-sched">
+  <div class="slist" id="schedList"></div>
+</div>
+
+<footer>
+  뉴스 출처: Google News RSS &nbsp;|&nbsp; 후보 정보: 언론 보도 기준 (확정 외 예상 포함)<br>
+  재보궐 실시 확정 마감: 4/30 · 최종 선거구 수는 변동 가능 · 선거일: 2026.6.3(수)
+</footer>
+</div>
+
+<script>
+const ED=new Date('2026-06-03'), PX='https://api.allorigins.win/get?url=';
+
+const regions=[
+  {id:'서울',name:'서울특별시',trend:'경합',
+   민주:[{n:'정원오',s:'경선중',d:'전 성동구청장, 여론조사 1위'},{n:'박주민',s:'경선중',d:'국회의원(은평갑)'},{n:'전현희',s:'경선중',d:'전 국민권익위원장'}],
+   국힘:[{n:'오세훈',s:'경선중',d:'현직 서울시장'},{n:'윤희숙',s:'경선중',d:'전 여의도연구원장'},{n:'박수민',s:'경선중',d:'국회의원(강남을)'}],
+   md:'경선중(3인)',nd:'경선중(3인)',poll:'본경선 4/7~9, 결선 시 4/17~19 · 정원오 42.6% vs 오세훈 28.0%'},
+  {id:'경기',name:'경기도',trend:'민주우세',
+   민주:[{n:'추미애',s:'확정',d:'6선 의원 — 4/7 본경선 과반 확정'}],
+   국힘:[{n:'미정',s:'미정',d:'추가 공모 재개 중'}],
+   md:'추미애(확정)',nd:'미정',poll:'민주 추미애 4/7 확정 · 국힘 추가 공모 재개'},
+  {id:'인천',name:'인천광역시',trend:'경합',
+   민주:[{n:'박찬대',s:'확정',d:'국회의원(연수갑) — 단수공천'}],
+   국힘:[{n:'유정복',s:'확정',d:'현직 인천시장 — 단수공천'}],
+   md:'박찬대(확정)',nd:'유정복(확정)',poll:'전국 최초 여야 모두 확정'},
+  {id:'부산',name:'부산광역시',trend:'민주우세',
+   민주:[{n:'전재수',s:'확정',d:'국회의원(북구갑) — 단수공천'}],
+   국힘:[{n:'박형준',s:'경선중',d:'현직 부산시장'},{n:'주진우',s:'경선중',d:'국회의원'}],
+   md:'전재수(확정)',nd:'경선중',poll:'민주 전재수 단수공천 · 민주 우세'},
+  {id:'대구',name:'대구광역시',trend:'경합',
+   민주:[{n:'김부겸',s:'확정',d:'전 국무총리 — 단수공천'}],
+   국힘:[{n:'이진숙',s:'경선중',d:'전 방통위원장'},{n:'주호영',s:'경선중',d:'항고 후 6인 경선'}],
+   md:'김부겸(확정)',nd:'6인 경선중',poll:'민주 김부겸 여론조사 선두 · 국힘 6인 경선'},
+  {id:'광주전남',name:'광주·전남 통합특별시',trend:'민주우세',
+   민주:[{n:'민형배',s:'결선중',d:'국회의원'},{n:'김영록',s:'결선중',d:'현직 전남지사'}],
+   국힘:[{n:'이정현',s:'예상',d:'전 공관위원장 — 출마 공식화'}],
+   md:'결선(민형배·김영록)',nd:'이정현(예상)',poll:'민주 결선 진행 중 · 7/1 통합특별시 출범'},
+  {id:'대전',name:'대전광역시',trend:'경합',
+   민주:[{n:'미정',s:'미정',d:'공천 절차 진행 중'}],
+   국힘:[{n:'이장우',s:'확정',d:'현직 대전시장 — 단수공천'}],
+   md:'미정',nd:'이장우(확정)',poll:'충청권 캐스팅보터'},
+  {id:'울산',name:'울산광역시',trend:'경합',
+   민주:[{n:'김상욱',s:'확정',d:'국힘 출신 전향 — 경선 확정'}],
+   국힘:[{n:'김두겸',s:'확정',d:'현직 울산시장 — 단수공천'}],
+   md:'김상욱(확정)',nd:'김두겸(확정)',poll:'경합 예상'},
+  {id:'세종',name:'세종특별자치시',trend:'경합',
+   민주:[{n:'미정',s:'미정',d:'공천 절차 진행 중'}],
+   국힘:[{n:'최민호',s:'예상',d:'현직 세종시장 — 재선 도전'}],
+   md:'미정',nd:'최민호(예상)',poll:'충청권 경합'},
+  {id:'경북',name:'경상북도',trend:'국힘우세',
+   민주:[{n:'오중기',s:'확정',d:'포항북 지역위원장 — 단수공천'}],
+   국힘:[{n:'이철우',s:'경선중',d:'현직 경북지사 3선 도전'},{n:'김재원',s:'경선중',d:'국힘 최고위원'}],
+   md:'오중기(확정)',nd:'경선중(이철우·김재원)',poll:'국힘 유일 우세 지역'},
+  {id:'경남',name:'경상남도',trend:'민주우세',
+   민주:[{n:'김경수',s:'확정',d:'전 지방시대위원장 — 단수공천'}],
+   국힘:[{n:'박완수',s:'확정',d:'현직 경남지사 — 단수공천'}],
+   md:'김경수(확정)',nd:'박완수(확정)',poll:'민주 김경수 vs 국힘 박완수 · 민주 우세'},
+  {id:'전북',name:'전북특별자치도',trend:'민주우세',
+   민주:[{n:'미정',s:'미정',d:'김관영·안호영·이원택 경선 예정'}],
+   국힘:[{n:'미정',s:'미정',d:'후보군 미정'}],
+   md:'경선 예정',nd:'미정',poll:'민주 강세 지역'},
+  {id:'충북',name:'충청북도',trend:'경합',
+   민주:[{n:'신용한',s:'확정',d:'박근혜 정부 출신 영입 — 확정'}],
+   국힘:[{n:'김영환',s:'경선중',d:'현직 충북지사'},{n:'이범석',s:'경선중',d:'청주시장'}],
+   md:'신용한(확정)',nd:'경선중(김영환·이범석 등)',poll:'국힘 경선 혼선 후 재개'},
+  {id:'충남',name:'충청남도',trend:'경합',
+   민주:[{n:'미정',s:'미정',d:'공천 절차 진행 중'}],
+   국힘:[{n:'김태흠',s:'확정',d:'현직 충남지사 — 단수공천'}],
+   md:'미정',nd:'김태흠(확정)',poll:'충청권 경합'},
+  {id:'강원',name:'강원특별자치도',trend:'민주우세',
+   민주:[{n:'우상호',s:'확정',d:'전 청와대 정무수석 — 단수공천'}],
+   국힘:[{n:'김진태',s:'예상',d:'현직 강원지사 — 연임 도전'}],
+   md:'우상호(확정)',nd:'김진태(예상)',poll:'민주 우상호 단수공천 · 민주 우세'},
+  {id:'제주',name:'제주특별자치도',trend:'민주우세',
+   민주:[{n:'미정',s:'미정',d:'오영훈 등 거론, 진행 중'}],
+   국힘:[{n:'미정',s:'미정',d:'후보군 미정'}],
+   md:'미정',nd:'미정',poll:'민주 강세 지역'},
+];
+
+const byels=[
+  {r:'인천 계양구 을',why:'이재명 대통령 취임',prev:'이재명(민주)',민주:'송영길 / 김남준 (경선)',국힘:'미정 (공모 중)',type:'확정',tc:'#0c447c',
+   note:'최대 격전지. 이재명 전 지역구. 송영길 무죄 확정 후 출마 가능, 조국 출마설도'},
+  {r:'경기 안산시 갑', why:'양문석 의원직 상실 (벌금 당선무효)', prev:'양문석(민주)',민주:'미정 (공모 중)',국힘:'미정 (공모 중)',type:'확정',tc:'#0c447c',
+   note:'재선거. 민주 텃밭이나 당선무효 재선거로 변수'},
+  {r:'경기 평택시 을', why:'이병진 의원직 상실 (벌금 당선무효)', prev:'이병진(민주)',민주:'김용 전 민주연구원 부원장 등',국힘:'양향자 / 유의동 검토',type:'확정',tc:'#633806',
+   note:'주요 격전지. 황교안·김재연도 출마 의향. 국힘 경합 가능'},
+  {r:'충남 아산시 을', why:'재판 확정 의원직 상실', prev:'미정',민주:'이윤석(출마 선언) 등',국힘:'미정',type:'확정',tc:'#888780',
+   note:'충청권 선거구'},
+  {r:'전북 군산·김제·부안갑', why:'신영대 선거사무장 매수 → 당선무효', prev:'신영대(민주)',민주:'김의겸 전 의원 (출마 선언)',국힘:'오지성 당협위원장',type:'확정',tc:'#0c447c',
+   note:'민주 텃밭. 조국혁신당 조국 출마설. 민주 김의겸 여론조사 선두'},
+  {r:'인천 연수구 갑', why:'박찬대 → 인천시장 출마 사퇴 예정', prev:'박찬대(민주)',민주:'박남춘 전 인천시장 등',국힘:'미정',type:'추가예정',tc:'#3c3489',
+   note:'박찬대 인천시장 단수공천 확정에 따라 보궐 거의 확정'},
+  {r:'부산 북구 갑', why:'전재수 → 부산시장 출마 사퇴 예정', prev:'전재수(민주)',민주:'미정',국힘:'미정',type:'추가예정',tc:'#3c3489',
+   note:'전재수 부산시장 단수공천 확정에 따라 보궐 추가 예상'},
+  {r:'기타 (출마 의원 지역구)', why:'광역단체장 경선 결과에 따라 추가', prev:'–',민주:'–',국힘:'–',type:'추가예정',tc:'#888780',
+   note:'서울·부산·대구 등 현역 의원 당선 시 해당 지역구 추가 · 최대 16곳 가능'},
+];
+
+const kwds=[
+  {l:'서울시장 경선',   s:'정원오·박주민',  q:'서울시장+경선+본경선+2026'},
+  {l:'경기지사 추미애', s:'경선 확정',       q:'추미애+경기도지사+확정'},
+  {l:'부산시장',        s:'전재수·박형준',  q:'부산시장+후보+지방선거+2026'},
+  {l:'대구시장',        s:'김부겸·경선',    q:'대구시장+후보+공천+2026'},
+  {l:'광주전남 결선',   s:'민형배·김영록',  q:'광주전남+통합특별시장+결선'},
+  {l:'민주 공천현황',   s:'전체 광역',       q:'민주당+광역단체장+공천+확정+2026'},
+  {l:'국힘 공천혼선',   s:'가처분·경선',    q:'국민의힘+광역단체장+공천+혼선+2026'},
+  {l:'광역 여론조사',   s:'판세 분석',       q:'6.3지방선거+여론조사+시도지사+2026'},
+  {l:'충청·강원·제주', s:'경합 지역',       q:'충청강원제주+단체장+공천+2026'},
+  {l:'경북·경남',      s:'이철우·김경수',  q:'경북경남+지사+공천+2026'},
+];
+
+const byKwds=[
+  {l:'계양을 재보궐',   s:'이재명 지역구',  q:'계양구을+재보궐+송영길+김남준'},
+  {l:'안산갑 재보궐',   s:'양문석 의원직',  q:'안산시갑+재보궐+2026'},
+  {l:'평택을 재보궐',   s:'격전지',         q:'평택시을+재보궐+2026'},
+  {l:'군산 재보궐',     s:'김의겸·조국',   q:'군산김제부안+재보궐+김의겸'},
+  {l:'재보궐 전체',     s:'미니 총선',      q:'재보궐선거+국회의원+2026+지방선거'},
+];
+
+const sched=[
+  {d:'2026.04.07 (완료)',e:'민주당 경기지사 — 추미애 과반 확정',tc:'#27500a',bg:'#eaf3de'},
+  {d:'2026.04.07~09',   e:'민주당 서울시장 본경선',             tc:'#0c447c',bg:'#e6f1fb'},
+  {d:'2026.04.15~19',   e:'민주당 서울시장 결선 (해당 시)',     tc:'#633806',bg:'#faeeda'},
+  {d:'2026.04.19',      e:'민주당 전 지역 공천 완료 목표',      tc:'#633806',bg:'#faeeda'},
+  {d:'2026.04.26',      e:'국민의힘 대구시장 공천 마무리 목표', tc:'#a32d2d',bg:'#fcebeb'},
+  {d:'2026.04.30',      e:'재보궐 실시 결정 마감일',            tc:'#633806',bg:'#faeeda'},
+  {d:'2026.05.14~15',   e:'후보자 등록 (오전 9시~오후 6시)',    tc:'#0c447c',bg:'#e6f1fb'},
+  {d:'2026.05.21',      e:'공식 선거운동 기간 시작',            tc:'#0c447c',bg:'#e6f1fb'},
+  {d:'2026.05.29~30',   e:'사전투표 (오전 6시~오후 6시)',       tc:'#0c447c',bg:'#e6f1fb'},
+  {d:'2026.06.03 (수)', e:'선거일 — 투표 오전 6시~오후 6시',   tc:'#791f1f',bg:'#fcebeb'},
+  {d:'2026.07.01',      e:'전남광주통합특별시 출범',            tc:'#444441',bg:'#f1efe8'},
+];
+
+function calcDday(){
+  const t=new Date();t.setHours(0,0,0,0);
+  const d=Math.ceil((ED-t)/86400000),s=d>0?`D-${d}`:'D-Day';
+  document.getElementById('dday').textContent=s;
+  document.getElementById('dchip').textContent='선거 '+s;
+}
+calcDday();
+
+function sw(id,el){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.sec').forEach(s=>s.classList.remove('active'));
+  el.classList.add('active');document.getElementById('tab-'+id).classList.add('active');
+}
+
+/* 공천 현황표 */
+function renderSummary(){
+  document.getElementById('sTbody').innerHTML=regions.map(r=>{
+    const tc={민주우세:'t-민주우세',국힘우세:'t-국힘우세',경합:'t-경합'}[r.trend]||'t-경합';
+    const ms=r.민주[0]?.s||'미정',ns=r.국힘[0]?.s||'미정';
+    const mc={확정:'t-민주확정',경선중:'t-민주경선',결선중:'t-민주결선',미정:'t-미정',예상:'t-미정'}[ms]||'t-미정';
+    const nc={확정:'t-국힘확정',경선중:'t-국힘경선',예상:'t-미정',미정:'t-미정'}[ns]||'t-미정';
+    return`<tr><td class="rn">${r.name}</td><td>${r.md}</td>
+      <td style="text-align:center"><span class="tag ${mc}">${ms}</span></td>
+      <td>${r.nd}</td><td style="text-align:center"><span class="tag ${nc}">${ns}</span></td>
+      <td style="text-align:center"><span class="tag ${tc}">${r.trend}</span></td></tr>`;
+  }).join('');
+}
+renderSummary();
+
+/* 재보궐 테이블 */
+function renderByel(){
+  document.getElementById('byTbody').innerHTML=byels.map(b=>{
+    const tc=b.type==='확정'?'t-확정':'t-추가예정';
+    return`<tr>
+      <td class="rn" style="color:${b.tc}">${b.r}</td>
+      <td style="font-size:12px;color:var(--text2);line-height:1.4">${b.why}</td>
+      <td style="font-size:12px">${b.prev}</td>
+      <td style="font-size:12px;line-height:1.4">${b.민주}</td>
+      <td style="font-size:12px;line-height:1.4">${b.국힘}</td>
+      <td style="text-align:center"><span class="tag ${tc}">${b.type}</span></td>
+    </tr>
+    <tr><td colspan="6" style="font-size:11px;color:var(--text3);padding:4px 10px 8px;border-top:none">${b.note}</td></tr>`;
+  }).join('');
+}
+renderByel();
+
+/* 재보궐 뉴스 */
+let bak=-1,bc={};
+function renderByKwGrid(){
+  document.getElementById('byKwGrid').innerHTML=byKwds.map((k,i)=>
+    `<button class="kwb${i===bak?' active':''}" onclick="bsk(${i})">
+      <div class="kl">${k.l}</div><div class="ks">${k.s}</div></button>`).join('');
+}
+renderByKwGrid();
+function bsk(i){bak=i;renderByKwGrid();bfetch(i);}
+async function bfetch(i){
+  const eb=document.getElementById('byErrBox');eb.style.display='none';
+  if(bc[i]){bnRender(bc[i]);return;}
+  document.getElementById('byNlist').innerHTML='<div class="smsg"><span class="spin"></span>불러오는 중...</div>';
+  const kw=byKwds[i];
+  try{
+    const r=await fetch(PX+encodeURIComponent(`https://news.google.com/rss/search?q=${kw.q}&hl=ko&gl=KR&ceid=KR:ko`));
+    if(!r.ok)throw new Error('HTTP '+r.status);
+    const j=await r.json();if(!j.contents)throw new Error('빈 응답');
+    const items=parseRSS(j.contents);bc[i]=items;bnRender(items);
+  }catch(e){
+    document.getElementById('byNlist').innerHTML='';eb.style.display='block';
+    eb.innerHTML=`로드 실패(${e.message}). <a href="https://news.google.com/search?q=${kw.q}&hl=ko&gl=KR" target="_blank" class="elink">구글 뉴스 직접 보기</a>`;
+  }
+}
+function bnRender(items){
+  const nl=document.getElementById('byNlist');
+  if(!items.length){nl.innerHTML='<div class="smsg">결과 없음</div>';return;}
+  nl.innerHTML=items.map(it=>`<a class="nc" href="${it.link}" target="_blank" rel="noopener">
+    <div class="nm">${it.source?`<span class="ns">${it.source}</span>`:''}<span class="nd">${it.date}</span></div>
+    <div class="nt">${it.title}</div>${it.desc?`<div class="nb">${it.desc}</div>`:''}</a>`).join('');
+}
+
+/* 광역단체장 카드 */
+let af='전체';
+function renderCards(){
+  const q=(document.getElementById('sinp').value||'').toLowerCase();
+  const g=document.getElementById('cardGrid');g.innerHTML='';
+  regions.forEach(r=>{
+    const all=[...r.민주.map(c=>({...c,p:'민주'})),...r.국힘.map(c=>({...c,p:'국힘'}))];
+    if(q&&!r.name.includes(q)&&!all.some(c=>c.n.includes(q)))return;
+    if(af==='확정'&&!all.some(c=>c.s==='확정'))return;
+    if(af==='경선'&&!all.some(c=>c.s==='경선중'||c.s==='결선중'))return;
+    if(af==='민주우세'&&r.trend!=='민주우세')return;
+    if(af==='국힘우세'&&r.trend!=='국힘우세')return;
+    const gn=`https://news.google.com/search?q=${encodeURIComponent(r.name.slice(0,3)+' 지방선거 후보')}&hl=ko&gl=KR`;
+    const dot={민주우세:'#378ADD',국힘우세:'#E24B4A',경합:'#888780'}[r.trend]||'#888780';
+    let rows='';
+    all.forEach(c=>{
+      const sc={확정:'s확정',경선중:'s경선중',결선중:'s결선중',예상:'s예상',미정:'s미정'}[c.s]||'s미정';
+      rows+=`<div class="row"><div class="rl">
+        <span class="ptag p${c.p}">${c.p==='민주'?'민주당':'국민의힘'}</span>
+        <span class="cn">${c.n}</span><span class="cd">${c.d}</span>
+      </div><span class="stag ${sc}">${c.s}</span></div>`;
+    });
+    g.innerHTML+=`<div class="card">
+      <div class="ched"><span class="cdot" style="background:${dot}"></span>${r.name}</div>
+      <div class="rows">${rows}</div>
+      <div class="poll">${r.poll}</div>
+      <a href="${gn}" target="_blank" rel="noopener" class="glink">구글 뉴스 검색</a></div>`;
+  });
+}
+renderCards();
+function sf(v,el){af=v;document.querySelectorAll('.fb').forEach(b=>b.classList.remove('active'));el.classList.add('active');renderCards();}
+function fc(){renderCards();}
+
+/* 뉴스 탭 */
+let ak=-1,nc={};
+function renderKwGrid(){
+  document.getElementById('kwGrid').innerHTML=kwds.map((k,i)=>
+    `<button class="kwb${i===ak?' active':''}" onclick="sk(${i})">
+      <div class="kl">${k.l}</div><div class="ks">${k.s}</div></button>`).join('');
+}
+renderKwGrid();
+function sk(i){ak=i;renderKwGrid();fetchNews(i);}
+
+function parseRSS(xml){
+  const doc=new DOMParser().parseFromString(xml,'text/xml');
+  return Array.from(doc.querySelectorAll('item')).map(n=>{
+    const c=s=>(s||'').replace(/<[^>]+>/g,'').replace(/&amp;/g,'&').replace(/&#39;/g,"'").replace(/&quot;/g,'"').trim();
+    let date='';try{const d=new Date(n.querySelector('pubDate')?.textContent||'');date=`${d.getMonth()+1}/${d.getDate()} ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;}catch(e){}
+    return{title:c(n.querySelector('title')?.textContent),link:(n.querySelector('link')?.textContent||'').trim(),desc:c(n.querySelector('description')?.textContent),source:c(n.querySelector('source')?.textContent),date};
+  }).filter(i=>i.title);
+}
+
+function renderN(items,nlId,utId){
+  const nl=document.getElementById(nlId);
+  if(!items.length){nl.innerHTML='<div class="smsg">검색 결과 없음</div>';return;}
+  nl.innerHTML=items.map(it=>`<a class="nc" href="${it.link}" target="_blank" rel="noopener">
+    <div class="nm">${it.source?`<span class="ns">${it.source}</span>`:''}<span class="nd">${it.date}</span></div>
+    <div class="nt">${it.title}</div>${it.desc?`<div class="nb">${it.desc}</div>`:''}</a>`).join('');
+  if(utId){const now=new Date();document.getElementById(utId).textContent=`업데이트: ${now.getMonth()+1}/${now.getDate()} ${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')} · ${items.length}건`;}
+}
+
+async function fetchNews(i){
+  const eb=document.getElementById('errBox');eb.style.display='none';
+  if(nc[i]){renderN(nc[i],'nlist','utime');return;}
+  document.getElementById('nlist').innerHTML='<div class="smsg"><span class="spin"></span>구글 뉴스 불러오는 중...</div>';
+  const kw=kwds[i];
+  try{
+    const r=await fetch(PX+encodeURIComponent(`https://news.google.com/rss/search?q=${kw.q}&hl=ko&gl=KR&ceid=KR:ko`));
+    if(!r.ok)throw new Error('HTTP '+r.status);
+    const j=await r.json();if(!j.contents)throw new Error('빈 응답');
+    const items=parseRSS(j.contents);nc[i]=items;renderN(items,'nlist','utime');
+  }catch(e){
+    document.getElementById('nlist').innerHTML='';eb.style.display='block';
+    eb.innerHTML=`로드 실패(${e.message}). <a href="https://news.google.com/search?q=${kw.q}&hl=ko&gl=KR" target="_blank" class="elink">구글 뉴스 직접 보기</a>`;
+  }
+}
+function refresh(){nc={};bc={};if(ak>=0)fetchNews(ak);if(bak>=0)bfetch(bak);}
+
+/* 선거 일정 */
+document.getElementById('schedList').innerHTML=sched.map(s=>
+  `<div class="sc"><div class="sd">${s.d}</div><div class="se">${s.e}</div>
+   <span class="stg" style="color:${s.tc};background:${s.bg}">일정</span></div>`).join('');
+
+/* 자정 갱신 */
+(function mid(){
+  const now=new Date(),next=new Date(now);next.setDate(next.getDate()+1);next.setHours(0,0,0,0);
+  setTimeout(()=>{nc={};bc={};calcDday();if(ak>=0)fetchNews(ak);if(bak>=0)bfetch(bak);mid();},next-now);
+})();
+
+const n=new Date();
+document.getElementById('utime').textContent=`데이터 기준: 2026.04.08 · 로드: ${n.getMonth()+1}/${n.getDate()} ${String(n.getHours()).padStart(2,'0')}:${String(n.getMinutes()).padStart(2,'0')}`;
+</script>
+</body>
+</html>
