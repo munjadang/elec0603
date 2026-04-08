@@ -39,12 +39,28 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Noto Sans KR','Apple SD Gothi
 /* shared */
 .note{font-size:11px;color:var(--t3);background:var(--bg2);border-radius:var(--r);padding:6px 12px;margin-bottom:1rem;line-height:1.7}
 .twrap{overflow-x:auto;margin-bottom:1rem}
-table.t{width:100%;border-collapse:collapse;font-size:13px}
+table.t{width:100%;border-collapse:collapse;font-size:13px;table-layout:fixed}
 table.t th{background:var(--bg2);color:var(--t2);font-weight:600;font-size:12px;padding:8px 10px;border:.5px solid var(--bd);white-space:nowrap}
-table.t td{padding:9px 10px;border:.5px solid var(--bd);background:var(--bg);vertical-align:top;line-height:1.55}
+table.t td{padding:9px 10px;border:.5px solid var(--bd);background:var(--bg);vertical-align:top;line-height:1.55;word-break:keep-all;overflow-wrap:break-word}
 table.t tr:hover td{background:var(--bg2)}
 table.t tr.sel-row td{background:color-mix(in srgb,var(--bg) 80%,#3b82f6 20%)}
-.rn{font-weight:700;font-size:14px;white-space:nowrap;cursor:pointer;color:var(--ci);text-decoration:underline;text-underline-offset:2px;text-decoration-style:dotted}
+/* 광역단체장 요약표 컬럼 너비 */
+#summaryTable th:nth-child(1),#summaryTable td:nth-child(1){width:22%}
+#summaryTable th:nth-child(2),#summaryTable td:nth-child(2){width:30%}
+#summaryTable th:nth-child(3),#summaryTable td:nth-child(3){width:30%}
+#summaryTable th:nth-child(4),#summaryTable td:nth-child(4){width:18%}
+@media(max-width:600px){
+  #summaryTable{font-size:12px}
+  #summaryTable td,#summaryTable th{padding:7px 6px}
+  #summaryTable th:nth-child(1),#summaryTable td:nth-child(1){width:26%}
+  #summaryTable th:nth-child(2),#summaryTable td:nth-child(2){width:28%}
+  #summaryTable th:nth-child(3),#summaryTable td:nth-child(3){width:28%}
+  #summaryTable th:nth-child(4),#summaryTable td:nth-child(4){width:18%}
+  #summaryTable .cpill{font-size:10px;padding:1px 5px}
+  #summaryTable .sbadge{font-size:10px;padding:1px 5px}
+  #summaryTable .cdesc{display:none}
+}
+.rn{font-weight:700;font-size:14px;cursor:pointer;color:var(--ci);text-decoration:underline;text-underline-offset:2px;text-decoration-style:dotted;word-break:keep-all}
 .rn:hover{opacity:.75}
 /* tags */
 .tag{display:inline-block;font-size:11px;font-weight:700;padding:2px 7px;border-radius:99px;white-space:nowrap}
@@ -696,8 +712,10 @@ function fmtDate(pubDate){
    공통 뉴스 fetch
 ──────────────────────────────── */
 const newsCache={};
+const CACHE_TTL=30*60*1000; // 30분
 async function fetchNewsQ(q){
-  if(newsCache[q])return newsCache[q];
+  const cached=newsCache[q];
+  if(cached&&Date.now()-cached.ts<CACHE_TTL)return cached.data;
   try{
     let items;
     if(USE_WORKER){
@@ -714,7 +732,7 @@ async function fetchNewsQ(q){
       if(!j.contents)throw new Error('빈 응답');
       items=parseRSS(j.contents);
     }
-    newsCache[q]=items;
+    newsCache[q]={data:items,ts:Date.now()};
     return items;
   }catch(e){return null;}
 }
@@ -1085,6 +1103,17 @@ function refresh(){
   if(ak>=0)fetchNews(ak);
   if(eduAk>=0)eduFetch(eduAk);
 }
+
+/* 30분 자동 갱신 */
+setInterval(()=>{
+  // 만료된 캐시만 제거 (강제 삭제 없이 TTL로 자연 만료)
+  // 현재 표시 중인 키워드만 re-fetch
+  if(ak>=0){Object.keys(nc).forEach(k=>delete nc[k]);fetchNews(ak);}
+  if(eduAk>=0){Object.keys(eduNc).forEach(k=>delete eduNc[k]);eduFetch(eduAk);}
+  // 상단 상태바 시각 갱신
+  const n=new Date();
+  document.getElementById('utime').textContent=`데이터 기준: 2026.04.08 · 갱신: ${n.getMonth()+1}/${n.getDate()} ${String(n.getHours()).padStart(2,'0')}:${String(n.getMinutes()).padStart(2,'0')}`;
+}, CACHE_TTL);
 
 /* ────────────────────────────────
    ⑥ 선거 일정
