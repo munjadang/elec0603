@@ -342,24 +342,39 @@ const regions=[
        {n:'이상규',p:'진보당',s:'확정',d:'전 국회의원'},
      ],
    },   poll:'민주 정원오 4/9 확정 · 국힘 경선 진행 중',
-   newsQ:'서울시장+정원오+오세훈+여론조사+2026',
-   pollNewsQ:'서울시장+여론조사+2026'},
+   newsQ:'서울시장+2026',
+   polls:[
+     {title:'정원오 vs 오세훈',date:'2026.02.15',
+      bars:[{name:'정원오',pct:40,cls:'민주'},{name:'오세훈',pct:36,cls:'국힘'}],
+   nesdc:'서울특별시'
+  },
+   ]},
   {id:'경기',name:'경기도',trend:'민주우세',
    후보:{
      민주:[{n:'추미애',s:'확정',d:'6선 의원 — 4/7 본경선 과반 확정'}],
      국힘:[{n:'양향자',s:'경선중',d:'국힘 최고위원 출마 선언'},{n:'함진규',s:'경선중',d:'전 한국도로공사 사장'}],
      기타:[],
    },
-   poll:'민주 추미애 확정 · 국힘 추가 공모 재개 중',newsQ:'경기도지사+추미애+후보+2026',
-   pollNewsQ:'경기도지사+여론조사+2026'},
+   poll:'민주 추미애 확정 · 국힘 추가 공모 재개 중',newsQ:'경기도지사+2026',
+   polls:[
+     {title:'추미애 vs 국힘 후보',date:'2026.02',
+      bars:[{name:'추미애',pct:48,cls:'민주'},{name:'국힘',pct:31,cls:'국힘'}],
+   nesdc:'경기도'
+  },
+   ]},
   {id:'인천',name:'인천광역시',trend:'경합',
    후보:{
      민주:[{n:'박찬대',s:'확정',d:'국회의원(연수갑) — 3/4 단수공천'}],
      국힘:[{n:'유정복',s:'확정',d:'현직 인천시장 — 단수공천'}],
      기타:[],
    },
-   poll:'전국 최초 여야 모두 확정 · 박찬대 vs 유정복',newsQ:'인천시장+박찬대+유정복+2026',
-   pollNewsQ:'인천시장+여론조사+2026'},
+   poll:'전국 최초 여야 모두 확정 · 박찬대 vs 유정복',newsQ:'인천시장+2026',
+   polls:[
+     {title:'박찬대 vs 유정복',date:'2026.03',
+      bars:[{name:'박찬대',pct:44,cls:'민주'},{name:'유정복',pct:39,cls:'국힘'}],
+   nesdc:'인천광역시'
+  },
+   ]},
   {id:'부산',name:'부산광역시',trend:'경합',
    후보:{
      민주:[{n:'전재수',s:'확정',d:'초대 해양수산부 장관 — 4/9 경선 확정'}],
@@ -369,8 +384,13 @@ const regions=[
        {n:'조국(출마설)',p:'조국혁신당',s:'미정',d:'4월 중순 출마지 결정 예정'},
      ],
    },
-   poll:'민주 전재수 4/9 확정 · 국힘 박형준·주진우 경선 진행 중',newsQ:'부산시장+전재수+박형준+2026',
-   pollNewsQ:'부산시장+여론조사+2026'},
+   poll:'민주 전재수 4/9 확정 · 국힘 박형준·주진우 경선 진행 중',newsQ:'부산시장+2026',
+   polls:[
+     {title:'전재수 vs 박형준',date:'2026.03',
+      bars:[{name:'전재수',pct:42,cls:'민주'},{name:'박형준',pct:35,cls:'국힘'}],
+   nesdc:'부산광역시'
+  },
+   ]},
   {id:'대구',name:'대구광역시',trend:'경합',
    후보:{
      민주:[{n:'김부겸',s:'확정',d:'전 국무총리 — 단수공천'}],
@@ -379,8 +399,13 @@ const regions=[
        {n:'이수찬',p:'개혁신당',s:'확정',d:'개혁신당 대구시당 위원장'},
      ],
    },
-   poll:'민주 김부겸 단수공천 · 국힘 주호영 가처분 기각으로 6인 경선 확정',newsQ:'대구시장+김부겸+경선+2026',
-   pollNewsQ:'대구시장+여론조사+2026'},
+   poll:'민주 김부겸 단수공천 · 국힘 주호영 가처분 기각으로 6인 경선 확정',newsQ:'대구시장+2026',
+   polls:[
+     {title:'김부겸 vs 주호영',date:'2026.03',
+      bars:[{name:'김부겸',pct:38,cls:'민주'},{name:'주호영',pct:28,cls:'국힘'}],
+   nesdc:'대구광역시'
+  },
+   ]},
   {id:'광주전남',name:'광주·전남 통합특별시',trend:'민주우세',
    후보:{
      민주:[{n:'민형배',s:'결선중',d:'국회의원 — 4/12~14 결선'},{n:'김영록',s:'결선중',d:'현직 전남지사 — 4/12~14 결선'}],
@@ -390,8 +415,10 @@ const regions=[
        {n:'김주업',p:'진보당',s:'예상',d:'진보당 광주시당위원장'},
      ],
    },
-   poll:'민주 민형배·김영록 결선 4/12~14 · 2026.7.1 통합특별시 출범',newsQ:'광주전남+통합특별시장+민형배+김영록',
-   pollNewsQ:'광주전남+통합특별시장+여론조사+2026'},
+   poll:'민주 민형배·김영록 결선 4/12~14 · 2026.7.1 통합특별시 출범',newsQ:'광주전남+통합특별시장+2026',
+   polls:[],
+   nesdc:'광주광역시'
+  },
   {id:'대전',name:'대전광역시',trend:'경합',
    후보:{
      민주:[{n:'장철민',s:'결선중',d:'국회의원 — 결선 진출'},{n:'허태정',s:'결선중',d:'전 대전시장 — 결선 진출'}],
@@ -400,8 +427,13 @@ const regions=[
        {n:'강희린',p:'개혁신당',s:'확정',d:'개혁신당 대전시당 위원장'},
      ],
    },
-   poll:'민주 장철민·허태정 결선 예정 · 국힘 이장우 현직 단수공천',newsQ:'대전시장+후보+장철민+허태정+2026',
-   pollNewsQ:'대전시장+여론조사+2026'},
+   poll:'민주 장철민·허태정 결선 예정 · 국힘 이장우 현직 단수공천',newsQ:'대전시장+2026',
+   polls:[
+     {title:'민주 후보 vs 이장우',date:'2026.03',
+      bars:[{name:'민주후보',pct:40,cls:'민주'},{name:'이장우',pct:37,cls:'국힘'}],
+   nesdc:'대전광역시'
+  },
+   ]},
   {id:'울산',name:'울산광역시',trend:'경합',
    후보:{
      민주:[{n:'김상욱',s:'확정',d:'국민의힘 출신 전향 — 단수공천'}],
@@ -410,8 +442,13 @@ const regions=[
        {n:'조국(출마설)',p:'조국혁신당',s:'미정',d:'4월 중순 출마지 결정 예정'},
      ],
    },
-   poll:'민주 김상욱 vs 국힘 김두겸 · 조국 울산 출마설',newsQ:'울산시장+김상욱+김두겸+2026',
-   pollNewsQ:'울산시장+여론조사+2026'},
+   poll:'민주 김상욱 vs 국힘 김두겸 · 조국 울산 출마설',newsQ:'울산시장+2026',
+   polls:[
+     {title:'김상욱 vs 김두겸',date:'2026.02',
+      bars:[{name:'김상욱',pct:38,cls:'민주'},{name:'김두겸',pct:42,cls:'국힘'}],
+   nesdc:'울산광역시'
+  },
+   ]},
   {id:'세종',name:'세종특별자치시',trend:'경합',
    후보:{
      민주:[{n:'이춘희',s:'결선중',d:'전 세종시장 — 결선 진출'},{n:'조상호',s:'결선중',d:'전 세종시 부시장 — 결선 진출'}],
@@ -420,16 +457,26 @@ const regions=[
        {n:'하헌휘',p:'개혁신당',s:'확정',d:'개혁신당 세종시당 창당준비위원장'},
      ],
    },
-   poll:'민주 이춘희·조상호 결선 4/14~16 · 국힘 최민호 현직',newsQ:'세종시장+후보+이춘희+2026',
-   pollNewsQ:'세종시장+여론조사+2026'},
+   poll:'민주 이춘희·조상호 결선 4/14~16 · 국힘 최민호 현직',newsQ:'세종시장+2026',
+   polls:[
+     {title:'민주 후보 vs 최민호',date:'2026.03',
+      bars:[{name:'민주후보',pct:44,cls:'민주'},{name:'최민호',pct:35,cls:'국힘'}],
+   nesdc:'세종특별자치시'
+  },
+   ]},
   {id:'경북',name:'경상북도',trend:'국힘우세',
    후보:{
      민주:[{n:'오중기',s:'확정',d:'포항북 지역위원장 — 단수공천'}],
      국힘:[{n:'이철우',s:'경선중',d:'현직 경북지사 3선 도전'},{n:'김재원',s:'경선중',d:'국힘 최고위원'}],
      기타:[],
    },
-   poll:'국힘 이철우·김재원 경선 진행 중',newsQ:'경북지사+이철우+후보+2026',
-   pollNewsQ:'경북지사+여론조사+2026'},
+   poll:'국힘 이철우·김재원 경선 진행 중',newsQ:'경북지사+2026',
+   polls:[
+     {title:'오중기 vs 이철우',date:'2026.04',
+      bars:[{name:'오중기',pct:30,cls:'민주'},{name:'이철우',pct:42,cls:'국힘'}],
+   nesdc:'경상북도'
+  },
+   ]},
   {id:'경남',name:'경상남도',trend:'민주우세',
    후보:{
      민주:[{n:'김경수',s:'확정',d:'전 경남지사 — 단수공천'}],
@@ -438,8 +485,13 @@ const regions=[
        {n:'이봉수',p:'조국혁신당',s:'예상',d:'조국혁신당 김해시장 출마 → 도지사 거론'},
      ],
    },
-   poll:'민주 김경수 vs 국힘 박완수 · 여야 모두 확정',newsQ:'경남지사+김경수+박완수+2026',
-   pollNewsQ:'경남지사+여론조사+2026'},
+   poll:'민주 김경수 vs 국힘 박완수 · 여야 모두 확정',newsQ:'경남지사+2026',
+   polls:[
+     {title:'김경수 vs 박완수',date:'2026.03',
+      bars:[{name:'김경수',pct:46,cls:'민주'},{name:'박완수',pct:35,cls:'국힘'}],
+   nesdc:'경상남도'
+  },
+   ]},
   {id:'전북',name:'전북특별자치도',trend:'민주우세',
    후보:{
      민주:[{n:'본경선진행중',s:'경선중',d:'안호영·이원택 등 경선 진행 중'}],
@@ -449,16 +501,23 @@ const regions=[
      ],
    },
    poll:'민주 본경선 진행 중 · 민주당 텃밭',
-newsQ:'전북도지사+후보+경선+2026',
-   pollNewsQ:'전북도지사+여론조사+2026'},
+newsQ:'전북도지사+2026',
+   polls:[],
+   nesdc:'전북특별자치도'
+  },
   {id:'충북',name:'충청북도',trend:'경합',
    후보:{
      민주:[{n:'신용한',s:'확정',d:'박근혜 정부 출신 영입 — 단수공천'}],
      국힘:[{n:'김영환',s:'경선중',d:'현직 충북지사 — 가처분 인용 후 경선 재개'},{n:'이범석',s:'경선중',d:'청주시장 — 한국시리즈 경선'}],
      기타:[],
    },
-   poll:'민주 신용한 확정 · 국힘 가처분 인용으로 경선 재개',newsQ:'충북지사+신용한+김영환+2026',
-   pollNewsQ:'충북지사+여론조사+2026'},
+   poll:'민주 신용한 확정 · 국힘 가처분 인용으로 경선 재개',newsQ:'충북지사+2026',
+   polls:[
+     {title:'신용한 vs 김영환',date:'2026.03',
+      bars:[{name:'신용한',pct:40,cls:'민주'},{name:'김영환',pct:36,cls:'국힘'}],
+   nesdc:'충청북도'
+  },
+   ]},
   {id:'충남',name:'충청남도',trend:'경합',
    후보:{
      민주:[{n:'박수현',s:'결선중',d:'전 청와대 대변인 — 결선 진출'},{n:'양승조',s:'결선중',d:'전 충남지사 — 결선 진출'}],
@@ -468,16 +527,26 @@ newsQ:'전북도지사+후보+경선+2026',
        {n:'조국(출마설)',p:'조국혁신당',s:'미정',d:'아산을 재보선 출마설'},
      ],
    },
-   poll:'민주 박수현·양승조 결선 4/13~15 · 국힘 김태흠 현직 확정',newsQ:'충남지사+박수현+양승조+2026',
-   pollNewsQ:'충남지사+여론조사+2026'},
+   poll:'민주 박수현·양승조 결선 4/13~15 · 국힘 김태흠 현직 확정',newsQ:'충남지사+2026',
+   polls:[
+     {title:'민주 후보 vs 김태흠',date:'2026.03',
+      bars:[{name:'민주후보',pct:41,cls:'민주'},{name:'김태흠',pct:37,cls:'국힘'}],
+   nesdc:'충청남도'
+  },
+   ]},
   {id:'강원',name:'강원특별자치도',trend:'민주우세',
    후보:{
      민주:[{n:'우상호',s:'확정',d:'전 청와대 정무수석 — 단수공천'}],
      국힘:[{n:'김진태',s:'예상',d:'현직 강원지사 — 연임 도전'}],
      기타:[],
    },
-   poll:'민주 우상호 단수공천 · 국힘 김진태 현직 연임 도전',newsQ:'강원지사+우상호+김진태+2026',
-   pollNewsQ:'강원지사+여론조사+2026'},
+   poll:'민주 우상호 단수공천 · 국힘 김진태 현직 연임 도전',newsQ:'강원지사+2026',
+   polls:[
+     {title:'우상호 vs 김진태',date:'2026.03',
+      bars:[{name:'우상호',pct:43,cls:'민주'},{name:'김진태',pct:36,cls:'국힘'}],
+   nesdc:'강원특별자치도'
+  },
+   ]},
   {id:'제주',name:'제주특별자치도',trend:'민주우세',
    후보:{
      민주:[{n:'본경선진행중',s:'경선중',d:'오영훈·박희수 등 경선 진행 중'}],
@@ -485,8 +554,10 @@ newsQ:'전북도지사+후보+경선+2026',
      기타:[],
    },
    poll:'민주 본경선 진행 중 · 민주당 텃밭',
-newsQ:'제주지사+후보+경선+2026',
-   pollNewsQ:'제주지사+여론조사+2026'},
+newsQ:'제주지사+2026',
+   polls:[],
+   nesdc:'제주특별자치도'
+  },
 ];
 
 /* ── 교육감 데이터 ── */
@@ -498,7 +569,8 @@ const eduData=[
      {n:'조전혁',성향:'보수',s:'예상',d:'전 국회의원 — 2024 보궐 낙선 후 재도전 거론'},
    ],
    poll:'현직 정근식(진보, 2024 보궐 당선) 연임 도전 · 보수 단일화 변수',
-   newsQ:'서울시교육감+후보+2026'},
+   newsQ:'서울시교육감+2026',
+   nesdc:'서울특별시'},
   {id:'경기교육',region:'경기',name:'경기도교육감',현직:'임태희(보수)',현직성향:'보수',trend:'경합',
    후보:[
      {n:'임태희',성향:'보수',s:'예상',d:'현직 교육감 재선 도전'},
@@ -507,33 +579,38 @@ const eduData=[
      {n:'성기선',성향:'진보',s:'예상',d:'가톨릭대 교수'},
    ],
    poll:'보수 임태희 vs 진보 단일화 후보 구도 · 진보 단일화가 핵심 변수',
-   newsQ:'경기도교육감+후보+2026'},
+   newsQ:'경기도교육감+2026',
+   nesdc:'경기도'},
   {id:'부산교육',region:'부산',name:'부산시교육감',현직:'김석준(보수)',현직성향:'보수',trend:'경합',
    후보:[
      {n:'김석준',성향:'보수',s:'예상',d:'현직 교육감 4선 도전 — 재판 변수'},
      {n:'정승윤',성향:'보수',s:'예상',d:'전 국민권익위 부위원장'},
    ],
    poll:'현직 김석준 1심 직위상실형 → 2심 6/18 선고 예정으로 변수',
-   newsQ:'부산시교육감+후보+2026'},
+   newsQ:'부산시교육감+2026',
+   nesdc:'부산광역시'},
   {id:'대구교육',region:'대구',name:'대구시교육감',현직:'강은희(보수)',현직성향:'보수',trend:'보수우세',
    후보:[
      {n:'강은희',성향:'보수',s:'예상',d:'현직 교육감 3선 도전'},
    ],
    poll:' 지역 · 후보군 미확정',
-   newsQ:'대구시교육감+후보+2026'},
+   newsQ:'대구시교육감+2026',
+   nesdc:'대구광역시'},
   {id:'인천교육',region:'인천',name:'인천시교육감',현직:'도성훈(진보)',현직성향:'진보',trend:'경합',
    후보:[
      {n:'도성훈',성향:'진보',s:'예상',d:'현직 교육감 3선 도전'},
    ],
    poll:'현직 도성훈 3선 도전 · 보수 후보군 미정',
-   newsQ:'인천시교육감+후보+2026'},
+   newsQ:'인천시교육감+2026',
+   nesdc:'인천광역시'},
   {id:'광주교육',region:'광주전남',name:'광주·전남교육감',현직:'이정선(진보)',현직성향:'진보',trend:'진보우세',
    후보:[
      {n:'이정선',성향:'진보',s:'예상',d:'현직 광주교육감 연임 도전'},
      {n:'김영록측',성향:'진보',s:'예상',d:'전남 출신 진보 후보군 거론'},
    ],
    poll:'광주·전남 통합에 따라 교육감도 통합 선거 · ',
-   newsQ:'광주전남교육감+후보+2026'},
+   newsQ:'광주전남교육감+2026',
+   nesdc:'광주광역시'},
   {id:'대전교육',region:'대전',name:'대전시교육감',현직:'설동호(중도보수 3선)',현직성향:'보수',공석:true,공석사유:'3선 연임 제한 — 출마 불가',trend:'경합',
    후보:[
      {n:'설동호',성향:'중도',s:'예상',d:'현직 교육감 3선 연임 제한 — 출마 불가'},
@@ -541,20 +618,23 @@ const eduData=[
      {n:'성광진',성향:'진보',s:'예상',d:'전교조 대전지부장 출신'},
    ],
    poll:'현직 설동호 연임 제한으로 무주공산 · 진보-보수 경합',
-   newsQ:'대전시교육감+후보+2026'},
+   newsQ:'대전시교육감+2026',
+   nesdc:'대전광역시'},
   {id:'울산교육',region:'울산',name:'울산시교육감',현직:'천창수(진보)',현직성향:'진보',trend:'경합',
    후보:[
      {n:'천창수',성향:'진보',s:'예상',d:'현직 교육감 재선 도전'},
    ],
    poll:'현직 천창수 재선 도전 · 보수 후보군 미정',
-   newsQ:'울산시교육감+후보+2026'},
+   newsQ:'울산시교육감+2026',
+   nesdc:'울산광역시'},
   {id:'세종교육',region:'세종',name:'세종시교육감',현직:'최교진→사퇴(진보)',현직성향:'진보',공석:true,공석사유:'최교진 교육부장관 임명 사퇴',trend:'경합',
    후보:[
      {n:'안광식',성향:'진보',s:'예상',d:'더민주세종혁신회의 공동대표, 출마 선언'},
      {n:'강미애',성향:'보수',s:'예상',d:'전 세종도원초 교장, 출마 선언'},
    ],
    poll:'최교진 전 교육감 교육부장관 임명 사퇴 → 무주공산',
-   newsQ:'세종시교육감+후보+2026'},
+   newsQ:'세종시교육감+2026',
+   nesdc:'세종특별자치시'},
   {id:'경기교육',region:'경기',name:'경기도교육감',현직:'임태희(보수)',현직성향:'보수',trend:'경합',
    후보:[
      {n:'임태희',성향:'보수',s:'예상',d:'현직 교육감 재선 도전'},
@@ -562,52 +642,59 @@ const eduData=[
      {n:'안민석',성향:'진보',s:'예상',d:'전 국회의원 5선'},
    ],
    poll:'진보 단일화가 핵심 변수',
-   newsQ:'경기도교육감+후보+2026'},
+   newsQ:'경기도교육감+2026'},
   {id:'강원교육',region:'강원',name:'강원도교육감',현직:'신경호(보수)',현직성향:'보수',trend:'경합',
    후보:[
      {n:'신경호',성향:'보수',s:'예상',d:'현직 교육감 재선 도전'},
    ],
    poll:'현직 신경호 재선 도전 · 진보 후보군 미정',
-   newsQ:'강원도교육감+후보+2026'},
+   newsQ:'강원도교육감+2026',
+   nesdc:'강원특별자치도'},
   {id:'충북교육',region:'충북',name:'충청북도교육감',현직:'윤건영(진보)',현직성향:'진보',trend:'경합',
    후보:[
      {n:'김성근',성향:'진보',s:'예상',d:'전 충북교육청 부교육감 — 진보 단일화'},
      {n:'김진균',성향:'보수',s:'예상',d:'청주시체육회장, 전 충북교총 회장'},
    ],
    poll:'진보 단일후보 김성근 vs 보수 김진균 구도',
-   newsQ:'충북교육감+후보+2026'},
+   newsQ:'충북교육감+2026',
+   nesdc:'충청북도'},
   {id:'충남교육',region:'충남',name:'충청남도교육감',현직:'김지철(진보)',현직성향:'진보',trend:'경합',
    후보:[
      {n:'김지철',성향:'진보',s:'예상',d:'현직 교육감 재선 도전'},
    ],
    poll:'현직 김지철 재선 도전 · 보수 후보군 미정',
-   newsQ:'충남교육감+후보+2026'},
+   newsQ:'충남교육감+2026',
+   nesdc:'충청남도'},
   {id:'전북교육',region:'전북',name:'전북특별자치도교육감',현직:'서거석(진보)',현직성향:'진보',trend:'진보우세',
    후보:[
      {n:'서거석',성향:'진보',s:'예상',d:'현직 교육감 재선 도전'},
    ],
    poll:'민주당 텃밭 · ',
-   newsQ:'전북교육감+후보+2026'},
+   newsQ:'전북교육감+2026',
+   nesdc:'전북특별자치도'},
   {id:'경북교육',region:'경북',name:'경상북도교육감',현직:'임종식(보수)',현직성향:'보수',trend:'보수우세',
    후보:[
      {n:'임종식',성향:'보수',s:'예상',d:'현직 교육감 3선 도전 — 무죄 확정으로 출마 가능'},
      {n:'임준희',성향:'보수',s:'예상',d:'전 경남교육청 부교육감'},
    ],
    poll:' · 임종식 뇌물 무죄 확정으로 3선 도전',
-   newsQ:'경북교육감+후보+2026'},
+   newsQ:'경북교육감+2026',
+   nesdc:'경상북도'},
   {id:'경남교육',region:'경남',name:'경상남도교육감',현직:'박종훈(진보)',현직성향:'진보',trend:'경합',
    후보:[
      {n:'박종훈',성향:'진보',s:'예상',d:'현직 교육감 4선 도전'},
      {n:'김상권',성향:'보수',s:'예상',d:'보수 진영 거론'},
    ],
    poll:'현직 박종훈 4선 도전 · 보수 단일화 변수',
-   newsQ:'경남교육감+후보+2026'},
+   newsQ:'경남교육감+2026',
+   nesdc:'경상남도'},
   {id:'제주교육',region:'제주',name:'제주특별자치도교육감',현직:'김광수(보수)',현직성향:'보수',trend:'경합',
    후보:[
      {n:'김광수',성향:'보수',s:'예상',d:'현직 교육감 재선 도전'},
    ],
    poll:'현직 김광수 재선 도전 · 제주 교육의원 일몰제 적용',
-   newsQ:'제주교육감+후보+2026'},
+   newsQ:'제주교육감+2026',
+   nesdc:'제주특별자치도'},
 ];
 // 중복 제거 (경기 중복 제거)
 const eduDataUniq = eduData.filter((e,i,a)=>a.findIndex(x=>x.id===e.id)===i);
@@ -615,25 +702,45 @@ const eduDataUniq = eduData.filter((e,i,a)=>a.findIndex(x=>x.id===e.id)===i);
 const byels=[
   {r:'인천 계양구 을',why:'이재명 대통령 취임',prev:'이재명(민주)',민주:'송영길 / 김남준 (경선)',국힘:'미정 (공모 중)',type:'확정',tc:'#0c447c',
    note:'최대 격전지. 이재명 전 지역구. 송영길 무죄 확정 후 출마 가능, 조국 출마설도',
-   newsQ:'계양구을+재보궐+송영길+김남준'},
+   polls:[
+     {title:'송영길 vs 조전혁(예상)',date:'2026.03',
+      bars:[{name:'송영길',pct:42,cls:'민주'},{name:'국힘후보',pct:30,cls:'국힘'}]},
+   ],
+   newsQ:'계양구을+재보궐',
+   nesdc:'인천광역시'},
   {r:'경기 안산시 갑',why:'양문석 의원직 상실 (벌금 당선무효)',prev:'양문석(민주)',민주:'미정 (공모 중)',국힘:'미정 (공모 중)',type:'확정',tc:'#0c447c',
    note:'재선거. 민주 텃밭이나 당선무효 재선거로 변수',
-   newsQ:'안산시갑+재보궐+2026'},
+   polls:[],
+   newsQ:'안산시갑+재보궐',
+   nesdc:'경기도'},
   {r:'경기 평택시 을',why:'이병진 의원직 상실 (벌금 당선무효)',prev:'이병진(민주)',민주:'김용 전 민주연구원 부원장 등',국힘:'양향자 / 유의동 검토',type:'확정',tc:'#633806',
    note:'황교안·김재연도 출마 의향',
-   newsQ:'평택시을+재보궐+2026'},
+   polls:[],
+   newsQ:'평택시을+재보궐',
+   nesdc:'경기도'},
   {r:'충남 아산시 을',why:'재판 확정 의원직 상실',prev:'미정',민주:'이윤석(출마 선언) 등',국힘:'미정',type:'확정',tc:'#888780',
    note:'충청권 선거구',
-   newsQ:'아산시을+재보궐+2026'},
+   polls:[],
+   newsQ:'아산시을+재보궐',
+   nesdc:'충청남도'},
   {r:'전북 군산·김제·부안갑',why:'신영대 선거사무장 매수 → 당선무효',prev:'신영대(민주)',민주:'김의겸 전 의원 (출마 선언)',국힘:'오지성 당협위원장',type:'확정',tc:'#0c447c',
    note:'민주 텃밭. 조국혁신당 조국 출마설. 민주 김의겸 여론조사 선두',
-   newsQ:'군산김제부안+재보궐+김의겸'},
+   polls:[
+     {title:'김의겸 vs 오지성',date:'2026.04',
+      bars:[{name:'김의겸',pct:47,cls:'민주'},{name:'오지성',pct:18,cls:'국힘'}]},
+   ],
+   newsQ:'군산김제부안+재보궐',
+   nesdc:'전북특별자치도'},
   {r:'인천 연수구 갑',why:'박찬대 → 인천시장 출마 사퇴 예정',prev:'박찬대(민주)',민주:'박남춘 전 인천시장 등',국힘:'미정',type:'추가예정',tc:'#3c3489',
    note:'박찬대 인천시장 단수공천 확정에 따라 보궐 거의 확정',
-   newsQ:'인천연수갑+재보궐+박찬대'},
+   polls:[],
+   newsQ:'인천연수갑+재보궐',
+   nesdc:'인천광역시'},
   {r:'부산 북구 갑',why:'전재수 → 부산시장 출마 사퇴 예정',prev:'전재수(민주)',민주:'미정',국힘:'미정',type:'추가예정',tc:'#3c3489',
    note:'전재수 부산시장 단수공천 확정에 따라 보궐 추가 예상',
-   newsQ:'부산북갑+재보궐+전재수'},
+   polls:[],
+   newsQ:'부산북갑+재보궐',
+   nesdc:'부산광역시'},
 ];
 
 const kwds=[
@@ -649,11 +756,11 @@ const kwds=[
   {l:'경북·경남',      s:'이철우·김경수',  q:'경북경남+지사+공천+2026'},
 ];
 const byKwds=[
-  {l:'계양을 재보궐',s:'이재명 지역구',q:'계양구을+재보궐+송영길+김남준'},
-  {l:'안산갑 재보궐',s:'양문석 의원직',q:'안산시갑+재보궐+2026'},
-  {l:'평택을 재보궐',s:'격전지',       q:'평택시을+재보궐+2026'},
-  {l:'군산 재보궐',  s:'김의겸·조국',  q:'군산김제부안+재보궐+김의겸'},
-  {l:'재보궐 전체',  s:'미니 총선',    q:'재보궐선거+국회의원+2026+지방선거'},
+  {l:'계양을 재보궐',s:'이재명 지역구',q:'계양구을+재보궐'},
+  {l:'안산갑 재보궐',s:'양문석 의원직',q:'안산시갑+재보궐'},
+  {l:'평택을 재보궐',s:'격전지',       q:'평택시을+재보궐'},
+  {l:'군산 재보궐',  s:'김의겸·조국',  q:'군산김제부안+재보궐'},
+  {l:'재보궐 전체',  s:'미니 총선',    q:'재보궐선거+2026'},
 ];
 const sched=[
   {d:'2026.04.07 (완료)',e:'민주당 경기지사 — 추미애 과반 확정',tc:'#27500a',bg:'#eaf3de'},
@@ -808,37 +915,48 @@ renderSummary();
 
 /* 공용 모달 채우기 헬퍼 */
 /* 여론조사 뉴스 fetch */
-async function loadPollNews(pollNewsQ, containerEl, titleEl){
-  titleEl.style.display='';
-  containerEl.innerHTML=`<div class="smsg" style="padding:.5rem 0"><span class="spin"></span>불러오는 중...</div>`;
-  const items=await fetchNewsQ(pollNewsQ);
-  if(!items||!items.length){
-    containerEl.innerHTML=`<div class="poll-no-data">관련 여론조사 뉴스가 없습니다. <a href="https://news.google.com/search?q=${encodeURIComponent(pollNewsQ)}&hl=ko&gl=KR" target="_blank" rel="noopener" class="elink">검색</a></div>`;
+/* 여론조사 바 렌더 (정적 수치 + 날짜 고지) */
+/* 선관위 여론조사 목록 고정 링크 */
+const NESDC_URL='https://www.nesdc.go.kr/portal/bbs/B0000005/list.do?menuNo=200467';
+
+function renderPollBars(polls, containerEl, titleEl, nesdc){
+  titleEl.style.display = (polls&&polls.length)||nesdc ? '' : 'none';
+  if(!polls||!polls.length){
+    containerEl.innerHTML= nesdc
+      ? `<div style="margin-top:4px"><a href="${NESDC_URL}" target="_blank" rel="noopener" class="elink" style="font-size:12px">📋 선관위 등록 여론조사 목록</a></div>`
+      : '';
     return;
   }
-  containerEl.innerHTML=items.slice(0,3).map(it=>`<a class="nc" href="${it.link}" target="_blank" rel="noopener">
-    <div class="nm">${it.source?`<span class="ns">${it.source}</span>`:''}<span class="nd">${it.date}</span></div>
-    <div class="nt">${it.title}</div>
-  </a>`).join('');
+  containerEl.innerHTML=polls.map(p=>{
+    const localMax=Math.max(...p.bars.map(b=>b.pct),1);
+    const barsHtml=p.bars.map(b=>`<div class="poll-bar-row">
+      <div class="poll-bar-name">${b.name}</div>
+      <div class="poll-bar-wrap">
+        <div class="poll-bar-fill poll-bar-${b.cls}" style="width:${Math.round(b.pct/localMax*100)}%">${b.pct}%</div>
+      </div>
+    </div>`).join('');
+    return`<div class="poll-item">
+      <div class="poll-meta">
+        <span class="poll-label">${p.title}</span>
+        <span style="font-size:10px;color:var(--t3)">수치 기준: ${p.date||'날짜 미상'}</span>
+      </div>
+      <div class="poll-bars">${barsHtml}</div>
+    </div>`;
+  }).join('')
+  + (nesdc ? `<div style="margin-top:8px"><a href="${NESDC_URL}" target="_blank" rel="noopener" class="elink" style="font-size:12px">📋 선관위 등록 여론조사 목록</a></div>` : '');
 }
 
-function fillModal(title, poll, partiesHtml, newsQ, pollNewsQ){
+function fillModal(title, poll, partiesHtml, newsQ, polls, nesdc){
   document.getElementById('modalTitle').textContent=title;
   document.getElementById('modalPoll').textContent=poll;
   document.getElementById('modalParties').innerHTML=partiesHtml;
   const pollTitleEl=document.getElementById('modalPollSectionTitle');
   const pollBarsEl=document.getElementById('modalPollBars');
+  renderPollBars(polls, pollBarsEl, pollTitleEl, nesdc||null);
   const newsEl=document.getElementById('modalNews');
   const moreBtn=document.getElementById('modalMoreBtn');
   newsEl.innerHTML=`<div class="smsg" style="padding:.75rem 0"><span class="spin"></span>불러오는 중...</div>`;
   moreBtn.style.display='none';
-  // 여론조사 뉴스
-  if(pollNewsQ){
-    loadPollNews(pollNewsQ, pollBarsEl, pollTitleEl);
-  } else {
-    pollTitleEl.style.display='none';
-    pollBarsEl.innerHTML='';
-  }
   openModal();
   fetchNewsQ(newsQ).then(items=>{
     if(!items||!items.length){
@@ -895,7 +1013,7 @@ async function openRegionDetail(id){
       });
     });
   }
-  fillModal(r.name, r.poll, html, r.newsQ, r.pollNewsQ||null);
+  fillModal(r.name, r.poll, html, r.newsQ, r.polls||[], r.nesdc||null);
 }
 
 function openNewsTab(){
@@ -947,7 +1065,7 @@ async function openByelDetail(i){
       <div style="font-size:12px;color:var(--t2);margin-top:4px">전직 의원: ${b.prev}</div>
       <div style="font-size:12px;color:var(--t3);margin-top:6px">${b.note}</div>
     </div>`;
-  fillModal(b.r, '', partiesHtml, b.newsQ, []);
+  fillModal(b.r, '', partiesHtml, b.newsQ, b.polls||[], b.nesdc||null);
 }
 
 /* ────────────────────────────────
@@ -1092,7 +1210,7 @@ async function openEduDetail(id){
     <div class="dp-cand-desc">${c.d}</div>
     <div class="dp-cand-s">${sBadge(c.s)}</div>
   </div>`).join('');
-  fillModal(e.name+' 교육감', e.poll, candHtml, e.newsQ, []);
+  fillModal(e.name+' 교육감', e.poll, candHtml, e.newsQ, [], e.nesdc||null);
 }
 
 /* ────────────────────────────────
